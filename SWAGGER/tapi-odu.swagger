@@ -11,11 +11,11 @@
         "http"
     ],
     "paths": {
-        "/config/context/service-interface-point/{uuid}/layer-protocol/": {
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/": {
             "get": {
-                "summary": "Retrieve layer-protocol",
-                "description": "Retrieve operation of resource: layer-protocol",
-                "operationId": "retrieve_context_service-interface-point_layer-protocol_layer-protocol",
+                "summary": "Retrieve owned-node-edge-point",
+                "description": "Retrieve operation of resource: owned-node-edge-point",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_owned-node-edge-point",
                 "produces": [
                     "application/json"
                 ],
@@ -27,6 +27,13 @@
                         "in": "path",
                         "name": "uuid",
                         "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
                         "required": true,
                         "type": "string"
                     }
@@ -37,7 +44,7 @@
                         "schema": {
                             "items": {
                                 "type": "string",
-                                "x-path": "/context/service-interface-point/{uuid}/layer-protocol/{local-id}/"
+                                "x-path": "/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/"
                             },
                             "type": "array"
                         }
@@ -48,11 +55,11 @@
                 }
             }
         },
-        "/config/context/service-interface-point/{uuid}/layer-protocol/{local-id}/": {
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/": {
             "get": {
-                "summary": "Retrieve layer-protocol by ID",
-                "description": "Retrieve operation of resource: layer-protocol",
-                "operationId": "retrieve_context_service-interface-point_layer-protocol_layer-protocol_by_id",
+                "summary": "Retrieve owned-node-edge-point by ID",
+                "description": "Retrieve operation of resource: owned-node-edge-point",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_owned-node-edge-point_by_id",
                 "produces": [
                     "application/json"
                 ],
@@ -69,8 +76,15 @@
                     },
                     {
                         "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
                         "required": true,
                         "type": "string"
                     }
@@ -79,138 +93,7 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/layer-protocol_schema"
-                        }
-                    },
-                    "400": {
-                        "description": "Internal Error"
-                    }
-                }
-            }
-        },
-        "/config/context/service-interface-point/{uuid}/layer-protocol/{local-id}/name/": {
-            "get": {
-                "summary": "Retrieve name",
-                "description": "Retrieve operation of resource: name",
-                "operationId": "retrieve_context_service-interface-point_layer-protocol_name_name",
-                "produces": [
-                    "application/json"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "uuid",
-                        "description": "ID of uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "schema": {
-                            "items": {
-                                "type": "string",
-                                "x-path": "/context/service-interface-point/{uuid}/layer-protocol/{local-id}/name/{value-name}/"
-                            },
-                            "type": "array"
-                        }
-                    },
-                    "400": {
-                        "description": "Internal Error"
-                    }
-                }
-            }
-        },
-        "/config/context/service-interface-point/{uuid}/layer-protocol/{local-id}/name/{value-name}/": {
-            "get": {
-                "summary": "Retrieve name by ID",
-                "description": "Retrieve operation of resource: name",
-                "operationId": "retrieve_context_service-interface-point_layer-protocol_name_name_by_id",
-                "produces": [
-                    "application/json"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "uuid",
-                        "description": "ID of uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "value-name",
-                        "description": "ID of value-name",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "schema": {
-                            "$ref": "#/definitions/name-and-value"
-                        }
-                    },
-                    "400": {
-                        "description": "Internal Error"
-                    }
-                }
-            }
-        },
-        "/config/context/service-interface-point/{uuid}/layer-protocol/{local-id}/odu-pool-property-spec/": {
-            "get": {
-                "summary": "Retrieve odu-pool-property-spec",
-                "description": "Retrieve operation of resource: odu-pool-property-spec",
-                "operationId": "retrieve_context_service-interface-point_layer-protocol_odu-pool-property-spec_odu-pool-property-spec",
-                "produces": [
-                    "application/json"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "uuid",
-                        "description": "ID of uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "schema": {
-                            "$ref": "#/definitions/odu-pool-property-pac"
+                            "$ref": "#/definitions/owned-node-edge-point_schema"
                         }
                     },
                     "400": {
@@ -315,7 +198,7 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/layer-protocol_schema"
+                            "$ref": "#/definitions/layer-protocol"
                         }
                     },
                     "400": {
@@ -443,11 +326,109 @@
                 }
             }
         },
-        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/layer-protocol/{local-id}/odu-pool-property-spec/": {
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/state/": {
             "get": {
-                "summary": "Retrieve odu-pool-property-spec",
-                "description": "Retrieve operation of resource: odu-pool-property-spec",
-                "operationId": "retrieve_context_topology_node_owned-node-edge-point_layer-protocol_odu-pool-property-spec_odu-pool-property-spec",
+                "summary": "Retrieve state",
+                "description": "Retrieve operation of resource: state",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_state_state",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/admin-state-pac"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/name/": {
+            "get": {
+                "summary": "Retrieve name",
+                "description": "Retrieve operation of resource: name",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_name_name",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "items": {
+                                "type": "string",
+                                "x-path": "/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/name/{value-name}/"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/name/{value-name}/": {
+            "get": {
+                "summary": "Retrieve name by ID",
+                "description": "Retrieve operation of resource: name",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_name_name_by_id",
                 "produces": [
                     "application/json"
                 ],
@@ -478,8 +459,8 @@
                     },
                     {
                         "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
+                        "name": "value-name",
+                        "description": "ID of value-name",
                         "required": true,
                         "type": "string"
                     }
@@ -488,8 +469,278 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-pool-property-pac"
+                            "$ref": "#/definitions/name-and-value"
                         }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/": {
+            "get": {
+                "summary": "Retrieve connection-end-point",
+                "description": "Retrieve operation of resource: connection-end-point",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_connection-end-point",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "items": {
+                                "type": "string",
+                                "x-path": "/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/": {
+            "post": {
+                "summary": "Create connection-end-point by ID",
+                "description": "Create operation of resource: connection-end-point",
+                "operationId": "create_context_topology_node_owned-node-edge-point_connection-end-point_connection-end-point_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "connection-end-point",
+                        "schema": {
+                            "$ref": "#/definitions/connection-end-point_schema"
+                        },
+                        "description": "connection-end-pointbody object",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Retrieve connection-end-point by ID",
+                "description": "Retrieve operation of resource: connection-end-point",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_connection-end-point_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/connection-end-point_schema"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update connection-end-point by ID",
+                "description": "Update operation of resource: connection-end-point",
+                "operationId": "update_context_topology_node_owned-node-edge-point_connection-end-point_connection-end-point_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "connection-end-point",
+                        "schema": {
+                            "$ref": "#/definitions/connection-end-point_schema"
+                        },
+                        "description": "connection-end-pointbody object",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete connection-end-point by ID",
+                "description": "Delete operation of resource: connection-end-point",
+                "operationId": "delete_context_topology_node_owned-node-edge-point_connection-end-point_connection-end-point_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
                     },
                     "400": {
                         "description": "Internal Error"
@@ -607,7 +858,7 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/layer-protocol_schema"
+                            "$ref": "#/definitions/layer-protocol"
                         }
                     },
                     "400": {
@@ -749,11 +1000,123 @@
                 }
             }
         },
-        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/layer-protocol/{local-id}/odu-pool-property-spec/": {
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/state/": {
             "get": {
-                "summary": "Retrieve odu-pool-property-spec",
-                "description": "Retrieve operation of resource: odu-pool-property-spec",
-                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_layer-protocol_odu-pool-property-spec_odu-pool-property-spec",
+                "summary": "Retrieve state",
+                "description": "Retrieve operation of resource: state",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_state_state",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/operational-state-pac"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/name/": {
+            "get": {
+                "summary": "Retrieve name",
+                "description": "Retrieve operation of resource: name",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_name_name",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "items": {
+                                "type": "string",
+                                "x-path": "/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/name/{value-name}/"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/name/{value-name}/": {
+            "post": {
+                "summary": "Create name by ID",
+                "description": "Create operation of resource: name",
+                "operationId": "create_context_topology_node_owned-node-edge-point_connection-end-point_name_name_by_id",
                 "produces": [
                     "application/json"
                 ],
@@ -791,172 +1154,736 @@
                     },
                     {
                         "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
+                        "name": "value-name",
+                        "description": "ID of value-name",
                         "required": true,
                         "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "name",
+                        "schema": {
+                            "$ref": "#/definitions/name-and-value"
+                        },
+                        "description": "namebody object",
+                        "required": true
                     }
                 ],
                 "responses": {
                     "200": {
-                        "description": "Successful operation",
-                        "schema": {
-                            "$ref": "#/definitions/odu-pool-property-pac"
-                        }
+                        "description": "Successful operation"
                     },
                     "400": {
                         "description": "Internal Error"
                     }
                 }
-            }
-        },
-        "/config/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/": {
-            "get": {
-                "summary": "Retrieve layer-protocol",
-                "description": "Retrieve operation of resource: layer-protocol",
-                "operationId": "retrieve_context_connectivity-service_end-point_layer-protocol_layer-protocol",
-                "produces": [
-                    "application/json"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "uuid",
-                        "description": "ID of uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "schema": {
-                            "items": {
-                                "type": "string",
-                                "x-path": "/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/{local-id}/"
-                            },
-                            "type": "array"
-                        }
-                    },
-                    "400": {
-                        "description": "Internal Error"
-                    }
-                }
-            }
-        },
-        "/config/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/{local-id}/": {
-            "get": {
-                "summary": "Retrieve layer-protocol by ID",
-                "description": "Retrieve operation of resource: layer-protocol",
-                "operationId": "retrieve_context_connectivity-service_end-point_layer-protocol_layer-protocol_by_id",
-                "produces": [
-                    "application/json"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "uuid",
-                        "description": "ID of uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "schema": {
-                            "$ref": "#/definitions/layer-protocol_schema"
-                        }
-                    },
-                    "400": {
-                        "description": "Internal Error"
-                    }
-                }
-            }
-        },
-        "/config/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/{local-id}/name/": {
-            "get": {
-                "summary": "Retrieve name",
-                "description": "Retrieve operation of resource: name",
-                "operationId": "retrieve_context_connectivity-service_end-point_layer-protocol_name_name",
-                "produces": [
-                    "application/json"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "uuid",
-                        "description": "ID of uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "schema": {
-                            "items": {
-                                "type": "string",
-                                "x-path": "/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/{local-id}/name/{value-name}/"
-                            },
-                            "type": "array"
-                        }
-                    },
-                    "400": {
-                        "description": "Internal Error"
-                    }
-                }
-            }
-        },
-        "/config/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/{local-id}/name/{value-name}/": {
+            },
             "get": {
                 "summary": "Retrieve name by ID",
                 "description": "Retrieve operation of resource: name",
-                "operationId": "retrieve_context_connectivity-service_end-point_layer-protocol_name_name_by_id",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_name_name_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "value-name",
+                        "description": "ID of value-name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/name-and-value"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update name by ID",
+                "description": "Update operation of resource: name",
+                "operationId": "update_context_topology_node_owned-node-edge-point_connection-end-point_name_name_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "value-name",
+                        "description": "ID of value-name",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "name",
+                        "schema": {
+                            "$ref": "#/definitions/name-and-value"
+                        },
+                        "description": "namebody object",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete name by ID",
+                "description": "Delete operation of resource: name",
+                "operationId": "delete_context_topology_node_owned-node-edge-point_connection-end-point_name_name_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "value-name",
+                        "description": "ID of value-name",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/odu-common/": {
+            "post": {
+                "summary": "Create odu-common by ID",
+                "description": "Create operation of resource: odu-common",
+                "operationId": "create_context_topology_node_owned-node-edge-point_connection-end-point_odu-common_odu-common_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "odu-common",
+                        "schema": {
+                            "$ref": "#/definitions/odu-common-pac"
+                        },
+                        "description": "odu-commonbody object",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Retrieve odu-common",
+                "description": "Retrieve operation of resource: odu-common",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_odu-common_odu-common",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/odu-common-pac"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Update odu-common by ID",
+                "description": "Update operation of resource: odu-common",
+                "operationId": "update_context_topology_node_owned-node-edge-point_connection-end-point_odu-common_odu-common_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "body",
+                        "name": "odu-common",
+                        "schema": {
+                            "$ref": "#/definitions/odu-common-pac"
+                        },
+                        "description": "odu-commonbody object",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Delete odu-common by ID",
+                "description": "Delete operation of resource: odu-common",
+                "operationId": "delete_context_topology_node_owned-node-edge-point_connection-end-point_odu-common_odu-common_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/odu-term-and-adapter/": {
+            "get": {
+                "summary": "Retrieve odu-term-and-adapter",
+                "description": "Retrieve operation of resource: odu-term-and-adapter",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_odu-term-and-adapter_odu-term-and-adapter",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/odu-termination-and-client-adaptation-pac"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/odu-term-and-adapter/accepted-payload-type/": {
+            "get": {
+                "summary": "Retrieve accepted-payload-type",
+                "description": "Retrieve operation of resource: accepted-payload-type",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_odu-term-and-adapter_accepted-payload-type_accepted-payload-type",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "description": "This attribute is applicable when the ODU CTP object instance represents a lower order ODU CTP Sink at the client layer of the ODUP/ODU[i]j or ODUP/ODUj-21 adaptation function. \nThis attribute is a 2-digit Hex code that indicates the new accepted payload type.\nValid values are defined in Table 15-8 of ITU-T Recommendation G.709 with one additional value UN_INTERPRETABLE.",
+                            "$ref": "#/definitions/odu-payload-type"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/odu-ctp/": {
+            "get": {
+                "summary": "Retrieve odu-ctp",
+                "description": "Retrieve operation of resource: odu-ctp",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_odu-ctp_odu-ctp",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/odu-ctp-pac"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/odu-protection/": {
+            "get": {
+                "summary": "Retrieve odu-protection",
+                "description": "Retrieve operation of resource: odu-protection",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_odu-protection_odu-protection",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "connection-end-point_uuid",
+                        "description": "ID of connection-end-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/odu-protection-pac"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/odu-pool/": {
+            "get": {
+                "summary": "Retrieve odu-pool",
+                "description": "Retrieve operation of resource: odu-pool",
+                "operationId": "retrieve_context_topology_node_owned-node-edge-point_odu-pool_odu-pool",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "node_uuid",
+                        "description": "ID of node_uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "owned-node-edge-point_uuid",
+                        "description": "ID of owned-node-edge-point_uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/odu-pool-pac"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/meg/{uuid}/mep/": {
+            "get": {
+                "summary": "Retrieve mep",
+                "description": "Retrieve operation of resource: mep",
+                "operationId": "retrieve_context_meg_mep_mep",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "items": {
+                                "type": "string",
+                                "x-path": "/context/meg/{uuid}/mep/{local-id}/"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/meg/{uuid}/mep/{local-id}/": {
+            "get": {
+                "summary": "Retrieve mep by ID",
+                "description": "Retrieve operation of resource: mep",
+                "operationId": "retrieve_context_meg_mep_mep_by_id",
                 "produces": [
                     "application/json"
                 ],
@@ -975,6 +1902,83 @@
                         "in": "path",
                         "name": "local-id",
                         "description": "ID of local-id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "$ref": "#/definitions/mep_schema"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/meg/{uuid}/mep/{local-id}/name/": {
+            "get": {
+                "summary": "Retrieve name",
+                "description": "Retrieve operation of resource: name",
+                "operationId": "retrieve_context_meg_mep_name_name",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "local-id",
+                        "description": "ID of local-id",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "items": {
+                                "type": "string",
+                                "x-path": "/context/meg/{uuid}/mep/{local-id}/name/{value-name}/"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/meg/{uuid}/mep/{local-id}/name/{value-name}/": {
+            "get": {
+                "summary": "Retrieve name by ID",
+                "description": "Retrieve operation of resource: name",
+                "operationId": "retrieve_context_meg_mep_name_name_by_id",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
                         "required": true,
                         "type": "string"
                     },
@@ -1006,58 +2010,11 @@
                 }
             }
         },
-        "/config/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/{local-id}/odu-pool-property-spec/": {
+        "/config/context/meg/{uuid}/mep/{local-id}/odu-common/": {
             "get": {
-                "summary": "Retrieve odu-pool-property-spec",
-                "description": "Retrieve operation of resource: odu-pool-property-spec",
-                "operationId": "retrieve_context_connectivity-service_end-point_layer-protocol_odu-pool-property-spec_odu-pool-property-spec",
-                "produces": [
-                    "application/json"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "uuid",
-                        "description": "ID of uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "schema": {
-                            "$ref": "#/definitions/odu-pool-property-pac"
-                        }
-                    },
-                    "400": {
-                        "description": "Internal Error"
-                    }
-                }
-            }
-        },
-        "/config/context/service-interface-point/{uuid}/layer-protocol/{local-id}/ctp-pac/": {
-            "get": {
-                "summary": "Retrieve ctp-pac",
-                "description": "Retrieve operation of resource: ctp-pac",
-                "operationId": "retrieve_context_service-interface-point_layer-protocol_ctp-pac_ctp-pac",
+                "summary": "Retrieve odu-common",
+                "description": "Retrieve operation of resource: odu-common",
+                "operationId": "retrieve_context_meg_mep_odu-common_odu-common",
                 "produces": [
                     "application/json"
                 ],
@@ -1084,7 +2041,7 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-ctp-pac"
+                            "$ref": "#/definitions/odu-common-pac"
                         }
                     },
                     "400": {
@@ -1093,11 +2050,11 @@
                 }
             }
         },
-        "/config/context/service-interface-point/{uuid}/layer-protocol/{local-id}/termination-pac/": {
+        "/config/context/meg/{uuid}/mep/{local-id}/odu-term-and-adapter/": {
             "get": {
-                "summary": "Retrieve termination-pac",
-                "description": "Retrieve operation of resource: termination-pac",
-                "operationId": "retrieve_context_service-interface-point_layer-protocol_termination-pac_termination-pac",
+                "summary": "Retrieve odu-term-and-adapter",
+                "description": "Retrieve operation of resource: odu-term-and-adapter",
+                "operationId": "retrieve_context_meg_mep_odu-term-and-adapter_odu-term-and-adapter",
                 "produces": [
                     "application/json"
                 ],
@@ -1124,7 +2081,7 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-termination-pac"
+                            "$ref": "#/definitions/odu-termination-and-client-adaptation-pac"
                         }
                     },
                     "400": {
@@ -1133,51 +2090,11 @@
                 }
             }
         },
-        "/config/context/service-interface-point/{uuid}/layer-protocol/{local-id}/adapter-pac/": {
-            "get": {
-                "summary": "Retrieve adapter-pac",
-                "description": "Retrieve operation of resource: adapter-pac",
-                "operationId": "retrieve_context_service-interface-point_layer-protocol_adapter-pac_adapter-pac",
-                "produces": [
-                    "application/json"
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "in": "path",
-                        "name": "uuid",
-                        "description": "ID of uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful operation",
-                        "schema": {
-                            "$ref": "#/definitions/odu-client-adaptation-pac"
-                        }
-                    },
-                    "400": {
-                        "description": "Internal Error"
-                    }
-                }
-            }
-        },
-        "/config/context/service-interface-point/{uuid}/layer-protocol/{local-id}/adapter-pac/accepted-payload-type/": {
+        "/config/context/meg/{uuid}/mep/{local-id}/odu-term-and-adapter/accepted-payload-type/": {
             "get": {
                 "summary": "Retrieve accepted-payload-type",
                 "description": "Retrieve operation of resource: accepted-payload-type",
-                "operationId": "retrieve_context_service-interface-point_layer-protocol_adapter-pac_accepted-payload-type_accepted-payload-type",
+                "operationId": "retrieve_context_meg_mep_odu-term-and-adapter_accepted-payload-type_accepted-payload-type",
                 "produces": [
                     "application/json"
                 ],
@@ -1214,11 +2131,11 @@
                 }
             }
         },
-        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/layer-protocol/{local-id}/ctp-pac/": {
+        "/config/context/meg/{uuid}/mep/{local-id}/odu-ctp/": {
             "get": {
-                "summary": "Retrieve ctp-pac",
-                "description": "Retrieve operation of resource: ctp-pac",
-                "operationId": "retrieve_context_topology_node_owned-node-edge-point_layer-protocol_ctp-pac_ctp-pac",
+                "summary": "Retrieve odu-ctp",
+                "description": "Retrieve operation of resource: odu-ctp",
+                "operationId": "retrieve_context_meg_mep_odu-ctp_odu-ctp",
                 "produces": [
                     "application/json"
                 ],
@@ -1230,20 +2147,6 @@
                         "in": "path",
                         "name": "uuid",
                         "description": "ID of uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "node_uuid",
-                        "description": "ID of node_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "owned-node-edge-point_uuid",
-                        "description": "ID of owned-node-edge-point_uuid",
                         "required": true,
                         "type": "string"
                     },
@@ -1268,11 +2171,11 @@
                 }
             }
         },
-        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/layer-protocol/{local-id}/termination-pac/": {
+        "/config/context/meg/{uuid}/mep/{local-id}/odu-protection/": {
             "get": {
-                "summary": "Retrieve termination-pac",
-                "description": "Retrieve operation of resource: termination-pac",
-                "operationId": "retrieve_context_topology_node_owned-node-edge-point_layer-protocol_termination-pac_termination-pac",
+                "summary": "Retrieve odu-protection",
+                "description": "Retrieve operation of resource: odu-protection",
+                "operationId": "retrieve_context_meg_mep_odu-protection_odu-protection",
                 "produces": [
                     "application/json"
                 ],
@@ -1289,20 +2192,6 @@
                     },
                     {
                         "in": "path",
-                        "name": "node_uuid",
-                        "description": "ID of node_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "owned-node-edge-point_uuid",
-                        "description": "ID of owned-node-edge-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
                         "name": "local-id",
                         "description": "ID of local-id",
                         "required": true,
@@ -1313,7 +2202,7 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-termination-pac"
+                            "$ref": "#/definitions/odu-protection-pac"
                         }
                     },
                     "400": {
@@ -1322,11 +2211,11 @@
                 }
             }
         },
-        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/layer-protocol/{local-id}/adapter-pac/": {
+        "/config/context/meg/{uuid}/mip/": {
             "get": {
-                "summary": "Retrieve adapter-pac",
-                "description": "Retrieve operation of resource: adapter-pac",
-                "operationId": "retrieve_context_topology_node_owned-node-edge-point_layer-protocol_adapter-pac_adapter-pac",
+                "summary": "Retrieve mip",
+                "description": "Retrieve operation of resource: mip",
+                "operationId": "retrieve_context_meg_mip_mip",
                 "produces": [
                     "application/json"
                 ],
@@ -1340,34 +2229,17 @@
                         "description": "ID of uuid",
                         "required": true,
                         "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "node_uuid",
-                        "description": "ID of node_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "owned-node-edge-point_uuid",
-                        "description": "ID of owned-node-edge-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-client-adaptation-pac"
+                            "items": {
+                                "type": "string",
+                                "x-path": "/context/meg/{uuid}/mip/{local-id}/"
+                            },
+                            "type": "array"
                         }
                     },
                     "400": {
@@ -1376,11 +2248,11 @@
                 }
             }
         },
-        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/layer-protocol/{local-id}/adapter-pac/accepted-payload-type/": {
+        "/config/context/meg/{uuid}/mip/{local-id}/": {
             "get": {
-                "summary": "Retrieve accepted-payload-type",
-                "description": "Retrieve operation of resource: accepted-payload-type",
-                "operationId": "retrieve_context_topology_node_owned-node-edge-point_layer-protocol_adapter-pac_accepted-payload-type_accepted-payload-type",
+                "summary": "Retrieve mip by ID",
+                "description": "Retrieve operation of resource: mip",
+                "operationId": "retrieve_context_meg_mip_mip_by_id",
                 "produces": [
                     "application/json"
                 ],
@@ -1397,20 +2269,6 @@
                     },
                     {
                         "in": "path",
-                        "name": "node_uuid",
-                        "description": "ID of node_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "owned-node-edge-point_uuid",
-                        "description": "ID of owned-node-edge-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
                         "name": "local-id",
                         "description": "ID of local-id",
                         "required": true,
@@ -1421,8 +2279,7 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "description": "This attribute is applicable when the ODU CTP object instance represents a lower order ODU CTP Sink at the client layer of the ODUP/ODU[i]j or ODUP/ODUj-21 adaptation function. \nThis attribute is a 2-digit Hex code that indicates the new accepted payload type.\nValid values are defined in Table 15-8 of ITU-T Recommendation G.709 with one additional value UN_INTERPRETABLE.",
-                            "$ref": "#/definitions/odu-payload-type"
+                            "$ref": "#/definitions/mip_schema"
                         }
                     },
                     "400": {
@@ -1431,11 +2288,11 @@
                 }
             }
         },
-        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/layer-protocol/{local-id}/ctp-pac/": {
+        "/config/context/meg/{uuid}/mip/{local-id}/name/": {
             "get": {
-                "summary": "Retrieve ctp-pac",
-                "description": "Retrieve operation of resource: ctp-pac",
-                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_layer-protocol_ctp-pac_ctp-pac",
+                "summary": "Retrieve name",
+                "description": "Retrieve operation of resource: name",
+                "operationId": "retrieve_context_meg_mip_name_name",
                 "produces": [
                     "application/json"
                 ],
@@ -1452,27 +2309,6 @@
                     },
                     {
                         "in": "path",
-                        "name": "node_uuid",
-                        "description": "ID of node_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "owned-node-edge-point_uuid",
-                        "description": "ID of owned-node-edge-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "connection-end-point_uuid",
-                        "description": "ID of connection-end-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
                         "name": "local-id",
                         "description": "ID of local-id",
                         "required": true,
@@ -1483,7 +2319,11 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-ctp-pac"
+                            "items": {
+                                "type": "string",
+                                "x-path": "/context/meg/{uuid}/mip/{local-id}/name/{value-name}/"
+                            },
+                            "type": "array"
                         }
                     },
                     "400": {
@@ -1492,11 +2332,11 @@
                 }
             }
         },
-        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/layer-protocol/{local-id}/termination-pac/": {
+        "/config/context/meg/{uuid}/mip/{local-id}/name/{value-name}/": {
             "get": {
-                "summary": "Retrieve termination-pac",
-                "description": "Retrieve operation of resource: termination-pac",
-                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_layer-protocol_termination-pac_termination-pac",
+                "summary": "Retrieve name by ID",
+                "description": "Retrieve operation of resource: name",
+                "operationId": "retrieve_context_meg_mip_name_name_by_id",
                 "produces": [
                     "application/json"
                 ],
@@ -1513,29 +2353,15 @@
                     },
                     {
                         "in": "path",
-                        "name": "node_uuid",
-                        "description": "ID of node_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "owned-node-edge-point_uuid",
-                        "description": "ID of owned-node-edge-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "connection-end-point_uuid",
-                        "description": "ID of connection-end-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
                         "name": "local-id",
                         "description": "ID of local-id",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "path",
+                        "name": "value-name",
+                        "description": "ID of value-name",
                         "required": true,
                         "type": "string"
                     }
@@ -1544,7 +2370,7 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-termination-pac"
+                            "$ref": "#/definitions/name-and-value"
                         }
                     },
                     "400": {
@@ -1553,11 +2379,11 @@
                 }
             }
         },
-        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/layer-protocol/{local-id}/adapter-pac/": {
+        "/config/context/meg/{uuid}/mip/{local-id}/odu-mip/": {
             "get": {
-                "summary": "Retrieve adapter-pac",
-                "description": "Retrieve operation of resource: adapter-pac",
-                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_layer-protocol_adapter-pac_adapter-pac",
+                "summary": "Retrieve odu-mip",
+                "description": "Retrieve operation of resource: odu-mip",
+                "operationId": "retrieve_context_meg_mip_odu-mip_odu-mip",
                 "produces": [
                     "application/json"
                 ],
@@ -1574,27 +2400,6 @@
                     },
                     {
                         "in": "path",
-                        "name": "node_uuid",
-                        "description": "ID of node_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "owned-node-edge-point_uuid",
-                        "description": "ID of owned-node-edge-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "connection-end-point_uuid",
-                        "description": "ID of connection-end-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
                         "name": "local-id",
                         "description": "ID of local-id",
                         "required": true,
@@ -1605,7 +2410,7 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-client-adaptation-pac"
+                            "$ref": "#/definitions/odu-mip-pac"
                         }
                     },
                     "400": {
@@ -1614,11 +2419,11 @@
                 }
             }
         },
-        "/config/context/topology/{uuid}/node/{node_uuid}/owned-node-edge-point/{owned-node-edge-point_uuid}/connection-end-point/{connection-end-point_uuid}/layer-protocol/{local-id}/adapter-pac/accepted-payload-type/": {
+        "/config/context/meg/{uuid}/mip/{local-id}/odu-mip/deg-thr/": {
             "get": {
-                "summary": "Retrieve accepted-payload-type",
-                "description": "Retrieve operation of resource: accepted-payload-type",
-                "operationId": "retrieve_context_topology_node_owned-node-edge-point_connection-end-point_layer-protocol_adapter-pac_accepted-payload-type_accepted-payload-type",
+                "summary": "Retrieve deg-thr",
+                "description": "Retrieve operation of resource: deg-thr",
+                "operationId": "retrieve_context_meg_mip_odu-mip_deg-thr_deg-thr",
                 "produces": [
                     "application/json"
                 ],
@@ -1635,27 +2440,6 @@
                     },
                     {
                         "in": "path",
-                        "name": "node_uuid",
-                        "description": "ID of node_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "owned-node-edge-point_uuid",
-                        "description": "ID of owned-node-edge-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "connection-end-point_uuid",
-                        "description": "ID of connection-end-point_uuid",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "in": "path",
                         "name": "local-id",
                         "description": "ID of local-id",
                         "required": true,
@@ -1666,8 +2450,8 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "description": "This attribute is applicable when the ODU CTP object instance represents a lower order ODU CTP Sink at the client layer of the ODUP/ODU[i]j or ODUP/ODUj-21 adaptation function. \nThis attribute is a 2-digit Hex code that indicates the new accepted payload type.\nValid values are defined in Table 15-8 of ITU-T Recommendation G.709 with one additional value UN_INTERPRETABLE.",
-                            "$ref": "#/definitions/odu-payload-type"
+                            "description": "This attribute indicates the threshold level for declaring a performance monitoring (PM) Second to be bad. The value of the threshold can be provisioned in terms of number of errored blocks or in terms of percentage of errored blocks. For percentage-based specification, in order to support provision of less than 1%, the specification consists of two fields. The first field indicates the granularity of percentage. For examples, in 1%, in 0.1%, or in 0.01%, etc. The second field indicates the multiple of the granularity. For number of errored block based, the value is a positive integer.",
+                            "$ref": "#/definitions/deg-thr"
                         }
                     },
                     "400": {
@@ -1676,11 +2460,11 @@
                 }
             }
         },
-        "/config/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/{local-id}/ctp-pac/": {
+        "/config/context/meg/{uuid}/mip/{local-id}/odu-ncm/": {
             "get": {
-                "summary": "Retrieve ctp-pac",
-                "description": "Retrieve operation of resource: ctp-pac",
-                "operationId": "retrieve_context_connectivity-service_end-point_layer-protocol_ctp-pac_ctp-pac",
+                "summary": "Retrieve odu-ncm",
+                "description": "Retrieve operation of resource: odu-ncm",
+                "operationId": "retrieve_context_meg_mip_odu-ncm_odu-ncm",
                 "produces": [
                     "application/json"
                 ],
@@ -1701,20 +2485,13 @@
                         "description": "ID of local-id",
                         "required": true,
                         "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-ctp-pac"
+                            "$ref": "#/definitions/odu-ncm-pac"
                         }
                     },
                     "400": {
@@ -1723,11 +2500,11 @@
                 }
             }
         },
-        "/config/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/{local-id}/termination-pac/": {
+        "/config/context/meg/{uuid}/mip/{local-id}/odu-tcm/": {
             "get": {
-                "summary": "Retrieve termination-pac",
-                "description": "Retrieve operation of resource: termination-pac",
-                "operationId": "retrieve_context_connectivity-service_end-point_layer-protocol_termination-pac_termination-pac",
+                "summary": "Retrieve odu-tcm",
+                "description": "Retrieve operation of resource: odu-tcm",
+                "operationId": "retrieve_context_meg_mip_odu-tcm_odu-tcm",
                 "produces": [
                     "application/json"
                 ],
@@ -1748,20 +2525,13 @@
                         "description": "ID of local-id",
                         "required": true,
                         "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-termination-pac"
+                            "$ref": "#/definitions/odu-tcm-mip-pac"
                         }
                     },
                     "400": {
@@ -1770,11 +2540,11 @@
                 }
             }
         },
-        "/config/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/{local-id}/adapter-pac/": {
+        "/config/context/meg/{uuid}/mip/{local-id}/odu-pm/": {
             "get": {
-                "summary": "Retrieve adapter-pac",
-                "description": "Retrieve operation of resource: adapter-pac",
-                "operationId": "retrieve_context_connectivity-service_end-point_layer-protocol_adapter-pac_adapter-pac",
+                "summary": "Retrieve odu-pm",
+                "description": "Retrieve operation of resource: odu-pm",
+                "operationId": "retrieve_context_meg_mip_odu-pm_odu-pm",
                 "produces": [
                     "application/json"
                 ],
@@ -1795,20 +2565,13 @@
                         "description": "ID of local-id",
                         "required": true,
                         "type": "string"
-                    },
-                    {
-                        "in": "path",
-                        "name": "local-id",
-                        "description": "ID of local-id",
-                        "required": true,
-                        "type": "string"
                     }
                 ],
                 "responses": {
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "$ref": "#/definitions/odu-client-adaptation-pac"
+                            "$ref": "#/definitions/odu-pm-pac"
                         }
                     },
                     "400": {
@@ -1817,11 +2580,11 @@
                 }
             }
         },
-        "/config/context/connectivity-service/{uuid}/end-point/{local-id}/layer-protocol/{local-id}/adapter-pac/accepted-payload-type/": {
+        "/config/context/meg/{uuid}/mip/{local-id}/odu-pm/uas/": {
             "get": {
-                "summary": "Retrieve accepted-payload-type",
-                "description": "Retrieve operation of resource: accepted-payload-type",
-                "operationId": "retrieve_context_connectivity-service_end-point_layer-protocol_adapter-pac_accepted-payload-type_accepted-payload-type",
+                "summary": "Retrieve uas",
+                "description": "Retrieve operation of resource: uas",
+                "operationId": "retrieve_context_meg_mip_odu-pm_uas_uas",
                 "produces": [
                     "application/json"
                 ],
@@ -1842,6 +2605,40 @@
                         "description": "ID of local-id",
                         "required": true,
                         "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "schema": {
+                            "description": "UnAvailable Second",
+                            "$ref": "#/definitions/uas-choice"
+                        }
+                    },
+                    "400": {
+                        "description": "Internal Error"
+                    }
+                }
+            }
+        },
+        "/config/context/meg/{uuid}/mip/{local-id}/odu-defect/": {
+            "get": {
+                "summary": "Retrieve odu-defect",
+                "description": "Retrieve operation of resource: odu-defect",
+                "operationId": "retrieve_context_meg_mip_odu-defect_odu-defect",
+                "produces": [
+                    "application/json"
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "uuid",
+                        "description": "ID of uuid",
+                        "required": true,
+                        "type": "string"
                     },
                     {
                         "in": "path",
@@ -1855,8 +2652,7 @@
                     "200": {
                         "description": "Successful operation",
                         "schema": {
-                            "description": "This attribute is applicable when the ODU CTP object instance represents a lower order ODU CTP Sink at the client layer of the ODUP/ODU[i]j or ODUP/ODUj-21 adaptation function. \nThis attribute is a 2-digit Hex code that indicates the new accepted payload type.\nValid values are defined in Table 15-8 of ITU-T Recommendation G.709 with one additional value UN_INTERPRETABLE.",
-                            "$ref": "#/definitions/odu-payload-type"
+                            "$ref": "#/definitions/odu-defect-pac"
                         }
                     },
                     "400": {
@@ -1867,7 +2663,7 @@
         }
     },
     "definitions": {
-        "odu-client-adaptation-pac": {
+        "odu-termination-and-client-adaptation-pac": {
             "description": "This Pac contains the attributes associated with the client adaptation function of the server layer TTP\nIt is present only if the CEP contains a TTP",
             "properties": {
                 "opu-tributary-slot-size": {
@@ -1904,45 +2700,23 @@
                 }
             }
         },
-        "odu-termination-pac": {
-            "description": "This Pac contains the attributes associated with the termination function of the TTP\nIt is present only if the CEP contains a TTP"
-        },
-        "odu-connection-end-point-lp-spec": {
+        "odu-connection-end-point-spec": {
             "properties": {
-                "odu-type": {
-                    "type": "string",
-                    "enum": [
-                        "odu-0",
-                        "odu-1",
-                        "odu-2",
-                        "odu-2-e",
-                        "odu-3",
-                        "odu-4",
-                        "odu-flex",
-                        "odu-cn"
-                    ],
-                    "description": "This attribute specifies the type of the ODU termination point."
+                "odu-common": {
+                    "$ref": "#/definitions/odu-common-pac"
                 },
-                "odu-rate": {
-                    "type": "string",
-                    "description": "This attribute indicates the rate of the ODU terminatino point. \nThis attribute is Set at create; i.e., once created it cannot be changed directly. \nIn case of resizable ODU flex, its value can be changed via HAO (not directly on the attribute). \n"
+                "odu-term-and-adapter": {
+                    "$ref": "#/definitions/odu-termination-and-client-adaptation-pac"
                 },
-                "odu-rate-tolerance": {
-                    "type": "string",
-                    "description": "This attribute indicates the rate tolerance of the ODU termination point. \nValid values are real value in the unit of ppm. \nStandardized values are defined in Table 7-2/G.709."
-                },
-                "ctp-pac": {
+                "odu-ctp": {
                     "$ref": "#/definitions/odu-ctp-pac"
                 },
-                "termination-pac": {
-                    "$ref": "#/definitions/odu-termination-pac"
-                },
-                "adapter-pac": {
-                    "$ref": "#/definitions/odu-client-adaptation-pac"
+                "odu-protection": {
+                    "$ref": "#/definitions/odu-protection-pac"
                 }
             }
         },
-        "odu-pool-property-pac": {
+        "odu-pool-pac": {
             "properties": {
                 "client-capacity": {
                     "type": "string"
@@ -1955,10 +2729,10 @@
                 }
             }
         },
-        "odu-node-edge-point-lp-spec": {
+        "odu-node-edge-point-spec": {
             "properties": {
-                "odu-pool-property-spec": {
-                    "$ref": "#/definitions/odu-pool-property-pac"
+                "odu-pool": {
+                    "$ref": "#/definitions/odu-pool-pac"
                 }
             }
         },
@@ -1984,17 +2758,116 @@
         },
         "odu-mep-spec": {
             "properties": {
+                "odu-mep": {
+                    "$ref": "#/definitions/odu-mep-pac"
+                },
+                "odu-ncm": {
+                    "$ref": "#/definitions/odu-ncm-pac"
+                },
+                "odu-tcm": {
+                    "$ref": "#/definitions/odu-tcm-mep-pac"
+                },
+                "odu-defect": {
+                    "$ref": "#/definitions/odu-defect-pac"
+                },
+                "odu-pm": {
+                    "$ref": "#/definitions/odu-pm-pac"
+                }
+            }
+        },
+        "odu-protection-pac": {
+            "properties": {
+                "aps-enable": {
+                    "type": "boolean",
+                    "description": "This attribute is for enabling/disabling the automatic protection switching (APS) capability at the transport adaptation function that is represented by the ODU_ConnectionTerminationPoint object class. It triggers the MI_APS_EN signal to the transport adaptation function."
+                },
+                "aps-level": {
+                    "type": "string",
+                    "description": "This attribute is for configuring the automatic protection switching (APS) level that should operate at the transport adaptation function that is represented by the ODU_ConnectionTerminationPoint object class. It triggers the MI_APS_LVL signal to the transport adaptation function. The value 0 means path and the values 1 through 6 mean TCM level 1 through 6 respectively."
+                }
+            }
+        },
+        "odu-ncm-pac": {
+            "properties": {
+                "tcm-fields-in-use": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "description": "This attribute indicates the used TCM fields of the ODU OH."
+                    }
+                }
+            }
+        },
+        "odu-tcm-mep-pac": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/odu-tcm-mip-pac"
+                },
+                {
+                    "properties": {
+                        "tcm-extension": {
+                            "type": "string"
+                        },
+                        "tcm-mode": {
+                            "type": "string",
+                            "description": "This attribute specifies the TCM mode at the entity. Valid values are: Operational, Monitor, and Transparent."
+                        },
+                        "codirectional": {
+                            "type": "boolean",
+                            "description": "This attribute specifies the directionality of the ODUT MEP with respect to the associated ODU CEP. The value of TRUE means that the sink part of the ODUT MEP terminates the same signal direction as the sink part of the ODU CEP. The Source part behaves similarly. This attribute is meaningful only on objects instantiated under ODU CEP, and at least one among ODU CEP and the subordinate object is bidirectional."
+                        },
+                        "ac-status-source": {
+                            "type": "string",
+                            "description": "This attribute indicates the status of the accepted TCM. "
+                        },
+                        "ac-status-sink": {
+                            "type": "string",
+                            "description": "This attribute indicates the status of the accepted TCM. "
+                        },
+                        "admin-state-source": {
+                            "type": "string",
+                            "enum": [
+                                "locked",
+                                "unlocked"
+                            ],
+                            "description": "This attribute provides the capability to provision the LOCK signal at the source, which is one of the ODU maintenance signals.  When a Tandem Connection endpoint is set to admin state locked, it will insert the ODU-LCK signal in the source direction."
+                        },
+                        "admin-state-sink": {
+                            "type": "string",
+                            "enum": [
+                                "locked",
+                                "unlocked"
+                            ],
+                            "description": "This attribute provides the capability to provision the LOCK signal at the sink, which is one of the ODU maintenance signals. When a Tandem Connection endpoint is set to admin state locked, it will insert the ODU-LCK signal in the downstream direction."
+                        }
+                    }
+                }
+            ]
+        },
+        "odu-mip-spec": {
+            "properties": {
+                "odu-mip": {
+                    "$ref": "#/definitions/odu-mip-pac"
+                },
+                "odu-ncm": {
+                    "$ref": "#/definitions/odu-ncm-pac"
+                },
+                "odu-tcm": {
+                    "$ref": "#/definitions/odu-tcm-mip-pac"
+                },
+                "odu-pm": {
+                    "$ref": "#/definitions/odu-pm-pac"
+                },
+                "odu-defect": {
+                    "$ref": "#/definitions/odu-defect-pac"
+                }
+            }
+        },
+        "odu-mip-pac": {
+            "properties": {
                 "acti": {
                     "type": "string",
                     "description": "The Trail Trace Identifier (TTI) information recovered (Accepted) from the TTI overhead position at the sink of a trail."
-                },
-                "deg-m": {
-                    "type": "string",
-                    "description": "This attribute indicates the threshold level for declaring a Degraded Signal defect (dDEG). A dDEG shall be declared if DegM consecutive bad PM Seconds are detected."
-                },
-                "deg-thr": {
-                    "type": "string",
-                    "description": "This attribute indicates the threshold level for declaring a performance monitoring (PM) Second to be bad. The value of the threshold can be provisioned in terms of number of errored blocks or in terms of percentage of errored blocks. For percentage-based specification, in order to support provision of less than 1%, the specification consists of two fields. The first field indicates the granularity of percentage. For examples, in 1%, in 0.1%, or in 0.01%, etc. The second field indicates the multiple of the granularity. For number of errored block based, the value is a positive integer."
                 },
                 "ex-dapi": {
                     "type": "string",
@@ -2018,21 +2891,124 @@
                     ],
                     "description": "This attribute indicates the mode of the Trace Identifier Mismatch (TIM) Detection function allowed values: OFF, SAPIonly, DAPIonly, SAPIandDAPI"
                 },
-                "txti": {
+                "deg-m": {
                     "type": "string",
-                    "description": "The Trail Trace Identifier (TTI) information, provisioned by the managing system at the termination source, to be placed in the TTI overhead position of the source of a trail for transmission.\n"
+                    "description": "This attribute indicates the threshold level for declaring a Degraded Signal defect (dDEG). A dDEG shall be declared if DegM consecutive bad PM Seconds are detected."
+                },
+                "deg-thr": {
+                    "description": "This attribute indicates the threshold level for declaring a performance monitoring (PM) Second to be bad. The value of the threshold can be provisioned in terms of number of errored blocks or in terms of percentage of errored blocks. For percentage-based specification, in order to support provision of less than 1%, the specification consists of two fields. The first field indicates the granularity of percentage. For examples, in 1%, in 0.1%, or in 0.01%, etc. The second field indicates the multiple of the granularity. For number of errored block based, the value is a positive integer.",
+                    "$ref": "#/definitions/deg-thr"
                 }
             }
         },
-        "protection-spec": {
+        "odu-tcm-mip-pac": {
             "properties": {
-                "aps-enable": {
-                    "type": "boolean",
-                    "description": "This attribute is for enabling/disabling the automatic protection switching (APS) capability at the transport adaptation function that is represented by the ODU_ConnectionTerminationPoint object class. It triggers the MI_APS_EN signal to the transport adaptation function."
-                },
-                "aps-level": {
+                "tcm-field": {
                     "type": "string",
-                    "description": "This attribute is for configuring the automatic protection switching (APS) level that should operate at the transport adaptation function that is represented by the ODU_ConnectionTerminationPoint object class. It triggers the MI_APS_LVL signal to the transport adaptation function. The value 0 means path and the values 1 through 6 mean TCM level 1 through 6 respectively."
+                    "description": "This attribute indicates the tandem connection monitoring field of the ODU OH."
+                }
+            }
+        },
+        "odu-mep-pac": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/odu-mip-pac"
+                },
+                {
+                    "properties": {
+                        "dm-source": {
+                            "type": "boolean",
+                            "description": "This attribute is for configuring the delay measurement process at the trail termination function represented by the subject TTP object class. It models the MI_DM_Source MI signal. If MI_DM_Source is false, then the value of the DMp bit is determined by the RI_DM. If MI_DM_Source is true, then the value of the DMp bit is set to MI_DMValue."
+                        },
+                        "dm-value": {
+                            "type": "boolean",
+                            "description": "This attribute is for setting the DMp and DMti bits of the delay measurement process. The value of 'true' sets the DMp and DMti bits to 0 and the value of 'false' to 1."
+                        },
+                        "txti": {
+                            "type": "string",
+                            "description": "The Trail Trace Identifier (TTI) information, provisioned by the managing system at the termination source, to be placed in the TTI overhead position of the source of a trail for transmission.\n"
+                        }
+                    }
+                }
+            ]
+        },
+        "odu-common-pac": {
+            "properties": {
+                "odu-type": {
+                    "type": "string",
+                    "enum": [
+                        "odu-0",
+                        "odu-1",
+                        "odu-2",
+                        "odu-2-e",
+                        "odu-3",
+                        "odu-4",
+                        "odu-flex",
+                        "odu-cn"
+                    ],
+                    "description": "This attribute specifies the type of the ODU termination point."
+                },
+                "odu-rate": {
+                    "type": "string",
+                    "description": "This attribute indicates the rate of the ODU terminatino point. \nThis attribute is Set at create; i.e., once created it cannot be changed directly. \nIn case of resizable ODU flex, its value can be changed via HAO (not directly on the attribute). \n"
+                },
+                "odu-rate-tolerance": {
+                    "type": "string",
+                    "description": "This attribute indicates the rate tolerance of the ODU termination point. \nValid values are real value in the unit of ppm. \nStandardized values are defined in Table 7-2/G.709."
+                }
+            }
+        },
+        "odu-pm-pac": {
+            "description": "Instance of this object class contains the ODUP layer-specific Current Data. This object class is a subclass of the OTN_CurrentData object class.\nPM data attributes: fBbe, fSes, nBbe, nSes. uas",
+            "properties": {
+                "n-bbe": {
+                    "type": "string",
+                    "description": "Near-end Background Block Error"
+                },
+                "f-bbe": {
+                    "type": "string",
+                    "description": "Far-end Background Block Error"
+                },
+                "n-ses": {
+                    "type": "string",
+                    "description": "Near-end Severely Errored Second"
+                },
+                "f-ses": {
+                    "type": "string",
+                    "description": "Far-end Severely Errored Second"
+                },
+                "uas": {
+                    "description": "UnAvailable Second",
+                    "$ref": "#/definitions/uas-choice"
+                }
+            }
+        },
+        "odu-defect-pac": {
+            "description": "The valid list of defects raised on the entity. If the value of any attribute is true, then the corresponding defect is raised.",
+            "properties": {
+                "bdi": {
+                    "type": "boolean",
+                    "description": "Backward Defect Indication"
+                },
+                "deg": {
+                    "type": "boolean",
+                    "description": "Signal Degraded"
+                },
+                "lck": {
+                    "type": "boolean",
+                    "description": "Locked"
+                },
+                "oci": {
+                    "type": "boolean",
+                    "description": "Open Connection Indicator"
+                },
+                "ssf": {
+                    "type": "boolean",
+                    "description": "Server Signal Failure"
+                },
+                "tim": {
+                    "type": "boolean",
+                    "description": "Trail Trace Identifier Mismatch"
                 }
             }
         },
@@ -2046,6 +3022,39 @@
                     ]
                 },
                 "hex-payload-type": {
+                    "type": "string"
+                }
+            }
+        },
+        "deg-thr": {
+            "description": "Degraded Threshold, specify either the percentage or the number of Errored Blocks in the defined interval. \ndegThrValue when type is PERCENTAGE:\npercentageGranularity is used to indicate the number of decimal points\nSo if percentageGranularity is ones, a value of 1 in degThrValue would indicate 1%, a value of 10 = 10%, a value of 100 = 100%\nSo if percentageGranularity is thousandths a value of 1 in degThrValue would indicate 0.001%, a value of 1000 = 1%, a value of 1000000 = 100%\ndegThrValue when type is NUMBER_ERROR_BLOCKS:\nNumber of Errored Blocks is captured in an integer value.",
+            "properties": {
+                "deg-thr-value": {
+                    "type": "string",
+                    "description": "Percentage of detected errored blocks"
+                },
+                "deg-thr-type": {
+                    "type": "string",
+                    "description": "Number of errored blocks"
+                },
+                "percentage-granularity": {
+                    "type": "string"
+                }
+            }
+        },
+        "uas-choice": {
+            "description": "If bidirectional is TRUE then use the uas attribute, if bidirectional is FALSE use the nuas, and fuas attributes",
+            "properties": {
+                "bidirectional": {
+                    "type": "boolean"
+                },
+                "uas": {
+                    "type": "string"
+                },
+                "nuas": {
+                    "type": "string"
+                },
+                "fuas": {
                     "type": "string"
                 }
             }
@@ -2104,6 +3113,20 @@
                             "type": "array",
                             "items": {
                                 "$ref": "#/definitions/connection"
+                            },
+                            "x-key": "uuid"
+                        },
+                        "oam-service": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/oam-service"
+                            },
+                            "x-key": "uuid"
+                        },
+                        "meg": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/meg"
                             },
                             "x-key": "uuid"
                         }
@@ -2327,8 +3350,8 @@
             "description": "Information on capacity of a particular TopologicalEntity.",
             "properties": {
                 "total-size": {
-                    "description": "Total capacity of the TopologicalEntity in MB/s",
-                    "$ref": "#/definitions/fixed-capacity-value"
+                    "description": "Total capacity of the TopologicalEntity in MB/s. In case of bandwidthProfile, this is expected to same as the committedInformationRate.",
+                    "$ref": "#/definitions/capacity-value"
                 },
                 "bandwidth-profile": {
                     "$ref": "#/definitions/bandwidth-profile"
@@ -2340,7 +3363,6 @@
                 "bw-profile-type": {
                     "type": "string",
                     "enum": [
-                        "not-applicable",
                         "mef-10.x",
                         "rfc-2697",
                         "rfc-2698",
@@ -2348,16 +3370,16 @@
                     ]
                 },
                 "committed-information-rate": {
-                    "type": "string"
+                    "$ref": "#/definitions/capacity-value"
                 },
                 "committed-burst-size": {
-                    "type": "string"
+                    "$ref": "#/definitions/capacity-value"
                 },
                 "peak-information-rate": {
-                    "type": "string"
+                    "$ref": "#/definitions/capacity-value"
                 },
                 "peak-burst-size": {
-                    "type": "string"
+                    "$ref": "#/definitions/capacity-value"
                 },
                 "color-aware": {
                     "type": "boolean"
@@ -2367,14 +3389,19 @@
                 }
             }
         },
-        "fixed-capacity-value": {
+        "capacity-value": {
             "description": "The Capacity (Bandwidth) values that are applicable for digital layers.",
             "properties": {
                 "value": {
                     "type": "string"
                 },
                 "unit": {
-                    "type": "string"
+                    "type": "string",
+                    "enum": [
+                        "gbps",
+                        "mbps",
+                        "kbps"
+                    ]
                 }
             }
         },
@@ -2388,15 +3415,16 @@
                 }
             }
         },
-        "layer-protocol_schema": {
+        "owned-node-edge-point_schema": {
             "allOf": [
                 {
-                    "$ref": "#/definitions/layer-protocol"
+                    "$ref": "#/definitions/node-edge-point"
                 },
                 {
                     "properties": {
-                        "local-id": {
-                            "type": "string"
+                        "owned-node-edge-point_uuid": {
+                            "type": "string",
+                            "description": "UUID: An identifier that is universally unique within an identifier space, where the identifier space is itself globally unique, and immutable. An UUID carries no semantics with respect to the purpose or state of the entity.\nUUID here uses string representation as defined in RFC 4122.  The canonical representation uses lowercase characters.\nPattern: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-' + '[0-9a-fA-F]{4}-[0-9a-fA-F]{12} \nExample of a UUID in string representation: f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
                         },
                         "name": {
                             "description": "List of names. A property of an entity with a value that is unique in some namespace but may change during the life of the entity. A name carries no semantics with respect to the purpose of the entity.",
@@ -2406,36 +3434,29 @@
                             },
                             "x-key": "value-name"
                         },
-                        "odu-type": {
-                            "type": "string",
-                            "enum": [
-                                "odu-0",
-                                "odu-1",
-                                "odu-2",
-                                "odu-2-e",
-                                "odu-3",
-                                "odu-4",
-                                "odu-flex",
-                                "odu-cn"
-                            ],
-                            "description": "This attribute specifies the type of the ODU termination point."
+                        "connection-end-point": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/connection-end-point"
+                            },
+                            "x-key": "uuid"
                         },
-                        "odu-rate": {
-                            "type": "string",
-                            "description": "This attribute indicates the rate of the ODU terminatino point. \nThis attribute is Set at create; i.e., once created it cannot be changed directly. \nIn case of resizable ODU flex, its value can be changed via HAO (not directly on the attribute). \n"
+                        "mip": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "x-path": "/tapi-common:context/tapi-oam:meg/tapi-oam:mip/tapi-oam:local-id"
+                            }
                         },
-                        "odu-rate-tolerance": {
-                            "type": "string",
-                            "description": "This attribute indicates the rate tolerance of the ODU termination point. \nValid values are real value in the unit of ppm. \nStandardized values are defined in Table 7-2/G.709."
+                        "mep": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "x-path": "/tapi-common:context/tapi-oam:meg/tapi-oam:mep/tapi-oam:local-id"
+                            }
                         },
-                        "ctp-pac": {
-                            "$ref": "#/definitions/odu-ctp-pac"
-                        },
-                        "termination-pac": {
-                            "$ref": "#/definitions/odu-termination-pac"
-                        },
-                        "adapter-pac": {
-                            "$ref": "#/definitions/odu-client-adaptation-pac"
+                        "odu-pool": {
+                            "$ref": "#/definitions/odu-pool-pac"
                         }
                     }
                 }
@@ -2500,6 +3521,9 @@
                                 "undefined-or-unknown"
                             ],
                             "description": "The directionality of the Link. \nIs applicable to simple Links where all LinkEnds are BIDIRECTIONAL (the Link will be BIDIRECTIONAL) or UNIDIRECTIONAL (the Link will be UNIDIRECTIONAL). \nIs not present in more complex cases."
+                        },
+                        "resilience-type": {
+                            "$ref": "#/definitions/resilience-type"
                         }
                     }
                 }
@@ -2688,7 +3712,7 @@
                     "items": {
                         "$ref": "#/definitions/cost-characteristic"
                     },
-                    "x-key": "cost-name cost-value cost-algorithm"
+                    "x-key": "cost-name"
                 }
             }
         },
@@ -2730,7 +3754,7 @@
                     "items": {
                         "$ref": "#/definitions/latency-characteristic"
                     },
-                    "x-key": "traffic-property-name traffic-property-queing-latency"
+                    "x-key": "traffic-property-name"
                 }
             }
         },
@@ -2743,7 +3767,7 @@
                     "items": {
                         "$ref": "#/definitions/validation-mechanism"
                     },
-                    "x-key": "validation-mechanism layer-protocol-adjacency-validated validation-robustness"
+                    "x-key": "validation-mechanism"
                 }
             }
         },
@@ -2921,9 +3945,17 @@
         "latency-characteristic": {
             "description": "Provides information on latency characteristic for a particular stated trafficProperty.",
             "properties": {
+                "traffic-property-name": {
+                    "type": "string",
+                    "description": "The identifier of the specific traffic property to which the queuing latency applies."
+                },
                 "fixed-latency-characteristic": {
                     "type": "string",
                     "description": "A TopologicalEntity suffers delay caused by the realization of the servers (e.g. distance related; FEC encoding etc.) along with some client specific processing. This is the total average latency effect of the TopologicalEntity"
+                },
+                "queing-latency-characteristic": {
+                    "type": "string",
+                    "description": "The specific queuing latency for the traffic property."
                 },
                 "jitter-characteristic": {
                     "type": "string",
@@ -2932,14 +3964,6 @@
                 "wander-characteristic": {
                     "type": "string",
                     "description": "Low frequency deviation from true periodicity of a signal and therefore a small low rate of change of transfer latency.\nApplies to TDM systems (and not packet)."
-                },
-                "traffic-property-name": {
-                    "type": "string",
-                    "description": "The identifier of the specific traffic property to which the queuing latency applies."
-                },
-                "traffic-property-queing-latency": {
-                    "type": "string",
-                    "description": "The specific queuing latency for the traffic property."
                 }
             }
         },
@@ -2973,6 +3997,30 @@
                 "validation-robustness": {
                     "type": "string",
                     "description": "Quality of validation (i.e. how likely is the stated validation to be invalid)"
+                }
+            }
+        },
+        "resilience-type": {
+            "properties": {
+                "restoration-policy": {
+                    "type": "string",
+                    "enum": [
+                        "per-domain-restoration",
+                        "end-to-end-restoration",
+                        "na"
+                    ]
+                },
+                "protection-type": {
+                    "type": "string",
+                    "enum": [
+                        "no-protecton",
+                        "one-plus-one-protection",
+                        "one-plus-one-protection-with-dynamic-restoration",
+                        "permanent-one-plus-one-protection",
+                        "one-for-one-protection",
+                        "dynamic-restoration",
+                        "pre-computed-restoration"
+                    ]
                 }
             }
         },
@@ -3092,14 +4140,14 @@
                 }
             }
         },
-        "owned-node-edge-point_schema": {
+        "connection-end-point_schema": {
             "allOf": [
                 {
-                    "$ref": "#/definitions/node-edge-point"
+                    "$ref": "#/definitions/connection-end-point"
                 },
                 {
                     "properties": {
-                        "owned-node-edge-point_uuid": {
+                        "connection-end-point_uuid": {
                             "type": "string",
                             "description": "UUID: An identifier that is universally unique within an identifier space, where the identifier space is itself globally unique, and immutable. An UUID carries no semantics with respect to the purpose or state of the entity.\nUUID here uses string representation as defined in RFC 4122.  The canonical representation uses lowercase characters.\nPattern: [0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-' + '[0-9a-fA-F]{4}-[0-9a-fA-F]{12} \nExample of a UUID in string representation: f81d4fae-7dec-11d0-a765-00a0c91e6bf6"
                         },
@@ -3111,12 +4159,31 @@
                             },
                             "x-key": "value-name"
                         },
-                        "connection-end-point": {
+                        "mip": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/connection-end-point"
-                            },
-                            "x-key": "uuid"
+                                "type": "string",
+                                "x-path": "/tapi-common:context/tapi-oam:meg/tapi-oam:mip/tapi-oam:local-id"
+                            }
+                        },
+                        "mep": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "x-path": "/tapi-common:context/tapi-oam:meg/tapi-oam:mep/tapi-oam:local-id"
+                            }
+                        },
+                        "odu-common": {
+                            "$ref": "#/definitions/odu-common-pac"
+                        },
+                        "odu-term-and-adapter": {
+                            "$ref": "#/definitions/odu-termination-and-client-adaptation-pac"
+                        },
+                        "odu-ctp": {
+                            "$ref": "#/definitions/odu-ctp-pac"
+                        },
+                        "odu-protection": {
+                            "$ref": "#/definitions/odu-protection-pac"
                         }
                     }
                 }
@@ -3218,7 +4285,7 @@
                             "type": "string",
                             "x-path": "/tapi-common:context/tapi-topology:topology/tapi-topology:node/tapi-topology:owned-node-edge-point/tapi-connectivity:connection-end-point/tapi-connectivity:uuid"
                         },
-                        "route": {
+                        "associated-route": {
                             "type": "array",
                             "items": {
                                 "type": "string",
@@ -3274,8 +4341,15 @@
                             "type": "string",
                             "description": "An abstract value the meaning of which is mutually agreed \u2013 typically represents metrics such as - Class of service, priority, resiliency, availability"
                         },
+                        "is-exclusive": {
+                            "type": "boolean",
+                            "description": "To distinguish if the resources are exclusive to the service  - for example between EPL(isExclusive=true) and EVPL (isExclusive=false), or between EPLAN (isExclusive=true) and EVPLAN (isExclusive=false)"
+                        },
                         "requested-capacity": {
                             "$ref": "#/definitions/capacity"
+                        },
+                        "schedule": {
+                            "$ref": "#/definitions/time-range"
                         },
                         "cost-characteristic": {
                             "description": "The list of costs where each cost relates to some aspect of the TopologicalEntity.",
@@ -3283,7 +4357,7 @@
                             "items": {
                                 "$ref": "#/definitions/cost-characteristic"
                             },
-                            "x-key": "cost-name cost-value cost-algorithm"
+                            "x-key": "cost-name"
                         },
                         "latency-characteristic": {
                             "description": "The effect on the latency of a queuing process. This only has significant effect for packet based systems and has a complex characteristic.",
@@ -3291,7 +4365,10 @@
                             "items": {
                                 "$ref": "#/definitions/latency-characteristic"
                             },
-                            "x-key": "traffic-property-name traffic-property-queing-latency"
+                            "x-key": "traffic-property-name"
+                        },
+                        "route-compute-policy": {
+                            "$ref": "#/definitions/route-compute-policy"
                         },
                         "coroute-inclusion": {
                             "type": "string",
@@ -3303,9 +4380,6 @@
                                 "type": "string",
                                 "x-path": "/tapi-common:context/tapi-connectivity:connectivity-service/tapi-connectivity:uuid"
                             }
-                        },
-                        "schedule": {
-                            "$ref": "#/definitions/time-range"
                         }
                     }
                 }
@@ -3351,6 +4425,13 @@
                         },
                         "layer-protocol-name": {
                             "type": "string"
+                        },
+                        "resilience-constraint": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/resilience-constraint"
+                            },
+                            "x-key": "local-id"
                         }
                     }
                 }
@@ -3408,6 +4489,18 @@
                                 "unknown"
                             ],
                             "description": "Each EP of the FC has a role (e.g., working, protection, protected, symmetric, hub, spoke, leaf, root)  in the context of the FC with respect to the FC function. "
+                        },
+                        "protection-role": {
+                            "type": "string",
+                            "enum": [
+                                "work",
+                                "protect",
+                                "protected",
+                                "na",
+                                "work-restore",
+                                "protect-restore"
+                            ],
+                            "description": "To specify the protection role of this Port when create or update ConnectivityService."
                         }
                     }
                 }
@@ -3532,53 +4625,75 @@
                             "x-key": "local-id"
                         },
                         "control-parameters": {
-                            "$ref": "#/definitions/control-parameters-pac"
+                            "$ref": "#/definitions/resilience-constraint"
                         }
                     }
                 }
             ],
             "description": "Represents the capability to control and coordinate switches, to add/delete/modify FCs and to add/delete/modify LTPs/LPs so as to realize a protection scheme."
         },
-        "control-parameters-pac": {
-            "description": "A list of control parameters to apply to a switch.",
-            "properties": {
-                "switch-type": {
-                    "type": "string",
-                    "enum": [
-                        "linear-1-plus-1",
-                        "linear-1-for-1"
-                    ],
-                    "description": "Indicates the protection scheme that is used for the ProtectionGroup."
+        "resilience-constraint": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/local-class"
                 },
-                "reversion-mode": {
-                    "type": "string",
-                    "enum": [
-                        "revertive",
-                        "non-revertive"
-                    ],
-                    "description": "Indcates whether the protection scheme is revertive or non-revertive."
-                },
-                "wait-to-revert-time": {
-                    "type": "string",
-                    "description": "If the protection system is revertive, this attribute specifies the time, in minutes, to wait after a fault clears on a higher priority (preferred) resource before reverting to the preferred resource."
-                },
-                "hold-off-time": {
-                    "type": "string",
-                    "description": "This attribute indicates the time, in milliseconds, between declaration of signal degrade or signal fail, and the initialization of the protection switching algorithm."
-                },
-                "is-lock-out": {
-                    "type": "boolean",
-                    "description": "The resource is configured to temporarily not be available for use in the protection scheme(s) it is part of.\nThis overrides all other protection control states including forced.\nIf the item is locked out then it cannot be used under any circumstances.\nNote: Only relevant when part of a protection scheme."
-                },
-                "is-frozen": {
-                    "type": "boolean",
-                    "description": "Temporarily prevents any switch action to be taken and, as such, freezes the current state. \nUntil the freeze is cleared, additional near-end external commands are rejected and fault condition changes and received APS messages are ignored.\nAll administrative controls of any aspect of protection are rejected."
-                },
-                "is-coordinated-switching-both-ends": {
-                    "type": "boolean",
-                    "description": "Is operating such that switching at both ends of each flow acorss the FC is coordinated at both ingress and egress ends."
+                {
+                    "properties": {
+                        "resilience-type": {
+                            "$ref": "#/definitions/resilience-type"
+                        },
+                        "restoration-coordinate-type": {
+                            "type": "string",
+                            "enum": [
+                                "no-coordinate",
+                                "hold-off-time",
+                                "wait-for-notification"
+                            ],
+                            "description": " The coordination mechanism between multi-layers."
+                        },
+                        "restore-priority": {
+                            "type": "string"
+                        },
+                        "reversion-mode": {
+                            "type": "string",
+                            "enum": [
+                                "revertive",
+                                "non-revertive"
+                            ],
+                            "description": "Indcates whether the protection scheme is revertive or non-revertive."
+                        },
+                        "wait-to-revert-time": {
+                            "type": "string",
+                            "description": "If the protection system is revertive, this attribute specifies the time, in minutes, to wait after a fault clears on a higher priority (preferred) resource before reverting to the preferred resource."
+                        },
+                        "hold-off-time": {
+                            "type": "string",
+                            "description": "This attribute indicates the time, in milliseconds, between declaration of signal degrade or signal fail, and the initialization of the protection switching algorithm."
+                        },
+                        "is-lock-out": {
+                            "type": "boolean",
+                            "description": "The resource is configured to temporarily not be available for use in the protection scheme(s) it is part of.\nThis overrides all other protection control states including forced.\nIf the item is locked out then it cannot be used under any circumstances.\nNote: Only relevant when part of a protection scheme."
+                        },
+                        "is-frozen": {
+                            "type": "boolean",
+                            "description": "Temporarily prevents any switch action to be taken and, as such, freezes the current state. \nUntil the freeze is cleared, additional near-end external commands are rejected and fault condition changes and received APS messages are ignored.\nAll administrative controls of any aspect of protection are rejected."
+                        },
+                        "is-coordinated-switching-both-ends": {
+                            "type": "boolean",
+                            "description": "Is operating such that switching at both ends of each flow acorss the FC is coordinated at both ingress and egress ends."
+                        },
+                        "max-switch-times": {
+                            "type": "string",
+                            "description": "Used to limit the maximum swtich times. When work fault disappears , and traffic return to the original work path, switch counter reset."
+                        },
+                        "layer-protocol": {
+                            "type": "string",
+                            "description": "Indicate which layer this resilience parameters package configured for."
+                        }
+                    }
                 }
-            }
+            ],
+            "description": "A list of control parameters to apply to a switch."
         },
         "topology-constraint": {
             "allOf": [
@@ -3666,6 +4781,222 @@
                     "x-key": "uuid"
                 }
             }
+        },
+        "route-compute-policy": {
+            "properties": {
+                "route-objective-function": {
+                    "type": "string",
+                    "enum": [
+                        "min-work-route-hop",
+                        "min-work-route-cost",
+                        "min-work-route-latency",
+                        "min-sum-of-work-and-protection-route-hop",
+                        "min-sum-of-work-and-protection-route-cost",
+                        "min-sum-of-work-and-protection-route-latency",
+                        "load-balance-max-unused-capacity"
+                    ]
+                },
+                "diversity-policy": {
+                    "type": "string",
+                    "enum": [
+                        "srlg",
+                        "srng",
+                        "sng",
+                        "node",
+                        "link"
+                    ]
+                }
+            }
+        },
+        "get-connection-detailsRPC_input_schema": {
+            "properties": {
+                "service-id-or-name": {
+                    "type": "string"
+                },
+                "connection-id-or-name": {
+                    "type": "string"
+                }
+            }
+        },
+        "get-connection-detailsRPC_output_schema": {
+            "properties": {
+                "connection": {
+                    "$ref": "#/definitions/connection"
+                }
+            }
+        },
+        "get-connectivity-service-listRPC_output_schema": {
+            "properties": {
+                "service": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/connectivity-service"
+                    }
+                }
+            }
+        },
+        "get-connectivity-service-detailsRPC_input_schema": {
+            "properties": {
+                "service-id-or-name": {
+                    "type": "string"
+                }
+            }
+        },
+        "get-connectivity-service-detailsRPC_output_schema": {
+            "properties": {
+                "service": {
+                    "$ref": "#/definitions/connectivity-service"
+                }
+            }
+        },
+        "create-connectivity-serviceRPC_input_schema": {
+            "properties": {
+                "end-point": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/connectivity-service-end-point"
+                    }
+                },
+                "conn-constraint": {
+                    "$ref": "#/definitions/connectivity-constraint"
+                },
+                "topo-constraint": {
+                    "$ref": "#/definitions/topology-constraint"
+                },
+                "resilience-constraint": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resilience-constraint"
+                    }
+                },
+                "state": {
+                    "type": "string"
+                }
+            }
+        },
+        "create-connectivity-serviceRPC_output_schema": {
+            "properties": {
+                "service": {
+                    "$ref": "#/definitions/connectivity-service"
+                }
+            }
+        },
+        "update-connectivity-serviceRPC_input_schema": {
+            "properties": {
+                "service-id-or-name": {
+                    "type": "string"
+                },
+                "end-point": {
+                    "$ref": "#/definitions/connectivity-service-end-point"
+                },
+                "conn-constraint": {
+                    "$ref": "#/definitions/connectivity-constraint"
+                },
+                "topo-constraint": {
+                    "$ref": "#/definitions/topology-constraint"
+                },
+                "resilience-constraint": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/resilience-constraint"
+                    }
+                },
+                "state": {
+                    "type": "string"
+                }
+            }
+        },
+        "update-connectivity-serviceRPC_output_schema": {
+            "properties": {
+                "service": {
+                    "$ref": "#/definitions/connectivity-service"
+                }
+            }
+        },
+        "delete-connectivity-serviceRPC_input_schema": {
+            "properties": {
+                "service-id-or-name": {
+                    "type": "string"
+                }
+            }
+        },
+        "delete-connectivity-serviceRPC_output_schema": {
+            "properties": {
+                "service": {
+                    "$ref": "#/definitions/connectivity-service"
+                }
+            }
+        },
+        "mep_schema": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/mep"
+                },
+                {
+                    "properties": {
+                        "local-id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "List of names. A property of an entity with a value that is unique in some namespace but may change during the life of the entity. A name carries no semantics with respect to the purpose of the entity.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/name-and-value"
+                            },
+                            "x-key": "value-name"
+                        },
+                        "odu-common": {
+                            "$ref": "#/definitions/odu-common-pac"
+                        },
+                        "odu-term-and-adapter": {
+                            "$ref": "#/definitions/odu-termination-and-client-adaptation-pac"
+                        },
+                        "odu-ctp": {
+                            "$ref": "#/definitions/odu-ctp-pac"
+                        },
+                        "odu-protection": {
+                            "$ref": "#/definitions/odu-protection-pac"
+                        }
+                    }
+                }
+            ]
+        },
+        "mip_schema": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/mip"
+                },
+                {
+                    "properties": {
+                        "local-id": {
+                            "type": "string"
+                        },
+                        "name": {
+                            "description": "List of names. A property of an entity with a value that is unique in some namespace but may change during the life of the entity. A name carries no semantics with respect to the purpose of the entity.",
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/name-and-value"
+                            },
+                            "x-key": "value-name"
+                        },
+                        "odu-mip": {
+                            "$ref": "#/definitions/odu-mip-pac"
+                        },
+                        "odu-ncm": {
+                            "$ref": "#/definitions/odu-ncm-pac"
+                        },
+                        "odu-tcm": {
+                            "$ref": "#/definitions/odu-tcm-mip-pac"
+                        },
+                        "odu-pm": {
+                            "$ref": "#/definitions/odu-pm-pac"
+                        },
+                        "odu-defect": {
+                            "$ref": "#/definitions/odu-defect-pac"
+                        }
+                    }
+                }
+            ]
         }
     }
 }
